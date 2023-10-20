@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import '../services/location.dart';
-import 'package:clima/services/weather.dart';
 import 'location_screen.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:clima/services/weather.dart';
 
 class LoadingScreen extends StatefulWidget {
   @override
-  _LoadingScreenState createState() => _LoadingScreenState();
+  State<StatefulWidget> createState() {
+    return _LoadingScreenState();
+  }
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     super.initState();
-    getLocation();
+    getLocationData();
   }
 
   void getLocationData() async {
@@ -24,11 +25,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
         locationWeather: weatherData,
       );
     }));
-  }
-
-  void getLocation() async {
-    Location location = Location();
-    location.getCurrentLocation();
   }
 
   @override
